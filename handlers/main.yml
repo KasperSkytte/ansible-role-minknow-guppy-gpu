@@ -43,6 +43,8 @@
     state: absent
   listen: Reload and restart guppy and minknow services
 
+#- name: Remove guppy CPU service
+
 - name: Reload systemd daemon
   service:
     name: guppyd
