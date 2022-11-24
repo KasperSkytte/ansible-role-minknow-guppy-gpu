@@ -4,12 +4,14 @@
     name: minknow
     state: stopped
   listen: Reload and restart guppy and minknow services
+  ignore_errors: true
 
 - name: Make sure guppyd service isn't running
   service:
     name: guppyd
     state: stopped
   listen: Reload and restart guppy and minknow services
+  ignore_errors: true
 
 - name: Check whether any guppy_basecall_server processes are still running
   shell: "ps -ef | grep -v grep | grep -w guppy_basecall_ | awk '{print $2}'"
