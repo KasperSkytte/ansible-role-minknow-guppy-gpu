@@ -9,3 +9,4 @@ ont_guppy_gpu_dir: /opt/ont-guppy-gpu
 guppy_gpu_runners_per_device: 8
 guppy_chunks_per_runner: 80
 guppy_cfg: dna_r9.4.1_450bps_hac.cfg
+guppy_cuda_devices: all

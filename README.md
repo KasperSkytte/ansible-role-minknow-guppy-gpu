@@ -26,6 +26,7 @@ If `ont_install_minKNOW` is `true` the following options are passed on directly 
 - `guppy_gpu_runners_per_device`
 - `guppy_chunks_per_runner`
 - `guppy_cfg`: Which Guppy basecall configuration file to use
+- `guppy_cuda_devices`: Which CUDA GPU's to use, fx `all` or `0`
 
 Other internal variables that don't require any adjustments by the end user is available in `defaults/main.yml`.
 
@@ -70,6 +71,7 @@ Including an example of how to use your role (for instance, with variables passe
     guppy_cfg: dna_r9.4.1_450bps_hac.cfg
     guppy_gpu_runners_per_device: 8
     guppy_chunks_per_runner: 80
+    guppy_cuda_devices: all
 ```
 License
 -------
