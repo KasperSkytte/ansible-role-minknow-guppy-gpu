@@ -22,10 +22,14 @@
     state: present
   when: ansible_distribution == 'Ubuntu' or ansible_distribution_version is version('20.04', '>=')
 
+- name: Set Ubuntu distribution release to focal since ONT doesn't support newer ones yet (if on Ubuntu >= 20.04)
+  set_fact: ansible_distribution_release="focal"
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution_version is version('20.04', '>=')
+
 - name: Add ONT apt key
   apt_key:
     url: "{{ ont_apt_repo_pub_key }}"
-    id: 7DC48F8EA3CEF634235DDADAAD9D09AF2EBBA5A8
+    #id: 7DC48F8EA3CEF634235DDADAAD9D09AF2EBBA5A8
     keyring: "/usr/share/keyrings/{{ ont_apt_repo_name }}-archive-keyring.gpg"
     state: present
   register: add_repository_key
