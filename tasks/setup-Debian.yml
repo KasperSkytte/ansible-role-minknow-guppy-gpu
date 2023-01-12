@@ -38,8 +38,6 @@
 - name: Add ONT apt key (alternative for older systems without SNI)
   shell: >
     curl -sSL {{ ont_apt_repo_pub_key }} | apt-key add -
-  args:
-    warn: false
   when: add_repository_key is failed
 
 - name: Add ONT apt repository
