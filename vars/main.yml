@@ -1,12 +1,8 @@
 ---
-#whether to also install and configure minKNOW
-ont_install_minKNOW: true
-
-#install path guppy GPU
-ont_guppy_gpu_dir: /opt/ont-guppy-gpu
-
-# Guppy basecall server settings
-guppy_gpu_runners_per_device: 8
-guppy_chunks_per_runner: 80
-guppy_cfg: dna_r9.4.1_450bps_hac.cfg
-guppy_cuda_devices: all
+# ONT APT repository settings
+ont_apt_repo_url: http://mirror.oxfordnanoportal.com/apt
+ont_apt_release_channel: stable non-free
+ont_apt_arch: amd64 # no choice but 64 bit
+ont_apt_repo_name: nanoporetech
+ont_apt_repo_pub_key: https://cdn.oxfordnanoportal.com/apt/ont-repo.pub
+ont_apt_ignore_key_error: true
