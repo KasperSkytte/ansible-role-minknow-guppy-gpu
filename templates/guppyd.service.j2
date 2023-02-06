@@ -8,7 +8,7 @@ StartLimitIntervalSec=0
 [Service]
 Type=simple
 Environment="LD_LIBRARY_PATH=/usr/lib/nvidia-current-ont:$LD_LIBRARY_PATH"
-ExecStart={{ ont_guppy_gpu_dir }}/ont-guppy/bin/guppy_basecall_server --log_path /var/log/guppy --config {{ guppy_cfg }} --num_callers 1 --cpu_threads_per_caller 2 --port /tmp/.guppy/5555 --ipc_threads 3 --chunks_per_runner {{ guppy_chunks_per_runner }} --gpu_runners_per_device {{ guppy_gpu_runners_per_device }} -x cuda:{{ guppy_cuda_devices }}
+ExecStart={{ ont_guppy_gpu_dir }}/ont-guppy/bin/guppy_basecall_server --log_path /var/log/guppy --config {{ guppy_cfg }} --num_callers 1 --cpu_threads_per_caller 2 --port /tmp/.guppy/5555 --ipc_threads 3 --chunks_per_runner {{ guppy_chunks_per_runner }} --gpu_runners_per_device {{ guppy_gpu_runners_per_device }} -x {{ guppy_cuda_devices }}
 Restart=always
 # Wait ten seconds in-between restarts, to avoid spam if the service starts crashing frequently.
 RestartSec=10

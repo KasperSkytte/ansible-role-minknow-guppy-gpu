@@ -22,13 +22,13 @@ Defaults can be found in `vars/main.yml`
 - `ont_install_minKNOW`: Whether to also install MinKNOW or not
 - `ont_guppy_gpu_dir`: Location where the GPU version of Guppy will be installed
 
-If `ont_install_minKNOW` is `true` the following options are passed on directly to the guppy_basecall_server command in the system service unit.
+If `ont_install_minKNOW` is `true` the following options are passed on directly to the `guppy_basecall_server` command in the system service unit:
 - `guppy_gpu_runners_per_device`
 - `guppy_chunks_per_runner`
 - `guppy_cfg`: Which Guppy basecall configuration file to use
-- `guppy_cuda_devices`: Which CUDA GPU's to use, fx `all` or `0`
+- `guppy_cuda_devices`: Which CUDA GPU's to use, fx `auto` or `cuda:0,1`
 
-Other internal variables that don't require any adjustments by the end user is available in `defaults/main.yml`.
+Other internal variables that don't require any adjustments by the end user is available in `vars/main.yml`.
 
 ### **Setting optimal Guppy parameters**
 The optimal settings of the last two options depends on your hardware. ONT has written the following about it ([source](https://community.nanoporetech.com/docs/prepare/library_prep_protocols/Guppy-protocol/v/gpb_2003_v1_revae_14dec2018/linux-guppy)):
@@ -71,7 +71,7 @@ Including an example of how to use your role (for instance, with variables passe
     guppy_cfg: dna_r9.4.1_450bps_hac.cfg
     guppy_gpu_runners_per_device: 8
     guppy_chunks_per_runner: 80
-    guppy_cuda_devices: all
+    guppy_cuda_devices: auto
 ```
 License
 -------
