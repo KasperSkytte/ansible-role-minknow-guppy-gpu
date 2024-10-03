@@ -1,6 +1,21 @@
 minknow_guppy_gpu
 =========
 
+guppy is outdated, use dorado
+-------
+For newer minknow versions using dorado instead of guppy, just do the following instead of using the ansible role:
+```
+sudo apt update
+sudo apt install wget
+wget -O- https://cdn.oxfordnanoportal.com/apt/ont-repo.pub | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/nanoporetech-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/nanoporetech-archive-keyring.gpg] http://cdn.oxfordnanoportal.com/apt jammy-stable non-free" | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
+sudo apt update
+sudo apt install ont-standalone-minknow-gpu-release -y
+#if needed adjust doradod service in /etc/systemd/system/multi-user.target.wants/doradod.service
+```
+
+Description
+------------
 This Ansible role sets up MinKNOW from Oxford Nanopore Technologies with live GPU basecalling support from Guppy. Alternatively only installs Guppy with GPU support without installing MinKNOW. Currently only supports Debian/Ubuntu because that's what I needed, but feel free to contribute. Installation is performed in much the same way as ONT recommends according to [this guide](https://community.nanoporetech.com/docs/prepare/library_prep_protocols/Guppy-protocol/v/gpb_2003_v1_revae_14dec2018/installing-gpu-version-of-guppy-with-minknow-for-minion) (requires login, corporate BS).
 
 Requirements
